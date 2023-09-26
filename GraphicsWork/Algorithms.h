@@ -1,0 +1,24 @@
+#pragma once
+void setScreen(double w, double h);
+void setCam(Camera);
+void setLight(Light);
+//void setLightColor(Vector3D);
+void Rotation(Triangle& tr, double x, double y, double z);
+void Scale(Triangle& tr, double x, double y, double z);
+void Translation(Triangle& tr, double x, double y, double z);
+TransformMatrix4D ModelTransform(int, double, double, double);
+TransformMatrix4D ViewTransform(Camera);
+TransformMatrix4D WorldTransform(Vector3D);
+TransformMatrix4D OrthoProj(double, double, double, double, double, double);
+TransformMatrix4D PerspProj(double _near, double _far, double aspect = 4 / 3, double fov = M_PI / 2);
+TransformMatrix4D viewport(double, double);
+void Inside(Triangle&, Point2D);
+void DDALine(Triangle&);
+Vector3D DirectionalLight(Light l, Camera c, Vector3D position, Vector3D normal, double diffuse, double specular);
+//Vector3D DirectionalLight(Triangle t, Vertex v, Light l, Camera c);
+Vector3D AmbientLight(Light);
+Vector3D DiffuseLight(Light, Vector3D, double);
+Vector3D SpecularLight(Light, Camera, Vector3D, Vector3D, double);
+Vector3D Barycentric(Triangle2D&, Point2D);
+Point2D* Clipping(Point2D, Point2D);
+//Vector3D Perc(Point2D, Point2D, Point2D);
